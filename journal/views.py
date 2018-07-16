@@ -30,7 +30,6 @@ class UpdateView(generic.UpdateView):
 
 
 def pdfview(request, journal_id):
-    config = pdfkit.configuration(wkhtmltopdf="/bin/wkhtmltopdf")
     journal = Journal.objects.get(id=journal_id)
     # print(journal)
     # pdf用のContent-TypeやContent-Dispositionをセット
@@ -42,6 +41,7 @@ def pdfview(request, journal_id):
 
 
 def _create_pdf(content):
+        config = pdfkit.configuration(wkhtmltopdf="/bin/wkhtmltopdf")
         options = {
             'page-size': 'A4',
             'margin-top': '0.5in',
@@ -151,4 +151,4 @@ def _create_pdf(content):
         html += '</p></main></div></body></html>'
         # print(html)
         # PDF出力
-        return pdfkit.from_string(html, False, options=options)
+        return pdfkit.from_string(html, False, options=options, configuration=config)

@@ -95,6 +95,8 @@ else:
         'default':dj_database_url.config()
     }
 
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -133,6 +135,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = 'staticfiles'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 # Sass(SCSS)
 SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, 'static')

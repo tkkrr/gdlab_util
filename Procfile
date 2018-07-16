@@ -1,1 +1,1 @@
-web: gunicorn --env DJANGO_SETTINGS_MODULE=phyche.settings phyche.wsgi --log-file -
+web: gunicorn phyche.wsgi --log-file -

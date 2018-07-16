@@ -57,6 +57,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+MIDDLEWARE_CLASSES = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+]
+
 ROOT_URLCONF = 'phyche.urls'
 
 TEMPLATES = [
@@ -133,9 +137,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = 'staticfiles'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-# STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 # Sass(SCSS)
 SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, 'static')

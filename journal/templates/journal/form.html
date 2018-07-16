@@ -1,0 +1,15 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'journal/style.scss' %}" />
+
+<h1>ジャーナル整形フォーム</h1>
+<a href="/journal/">一覧画面へ戻る</a>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+
+    <input class="submit_button" type="submit" value="create!">
+</form>

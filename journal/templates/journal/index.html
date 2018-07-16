@@ -1,0 +1,14 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'journal/style.scss' %}" />
+
+<h1>ジャーナル一覧</h1>
+
+<a href="/journal/form/">新しくジャーナルを作成する。</a>
+<ul>
+  {% for journal in journal_list %}
+    <li>{{ journal.date }} : {{ journal.name }} :
+      <a href="./{{ journal.id }}/pdfcreate/">pdfを作成する。</a>
+    </li>
+  {% endfor %}
+</ul>

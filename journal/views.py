@@ -4,6 +4,7 @@ from django.views import View, generic
 from django.http import HttpResponse
 from django.utils import timezone
 from datetime import datetime, timedelta
+from socket import gethostname
 
 from .forms import JournalForm
 from .models import Journal
@@ -34,14 +35,18 @@ def pdfview(request, journal_id):
     # print(journal)
     # pdf用のContent-TypeやContent-Dispositionをセット
     response = HttpResponse(_create_pdf(journal), content_type='application/pdf', status=200)
-    response['Content-Disposition'] = 'filename="example.pdf"'
+    response['Content-Disposition'] = 'attachment; filename="example.pdf"'
     # 即ダウンロードしたい時は、attachmentをつける
     # response['Content-Disposition'] = 'attachment; filename="example.pdf"'
     return response
 
 
 def _create_pdf(content):
-        config = pdfkit.configuration(wkhtmltopdf="/bin/wkhtmltopdf")
+        if 'takakurarei-no-MacBook-Pro.local' in gethostname():
+            config = pdfkit.configuration(wkhtmltopdf="/usr/local/bin/wkhtmltopdf")
+        else:
+            config = pdfkit.configuration(wkhtmltopdf="/bin/wkhtmltopdf")
+
         options = {
             'page-size': 'A4',
             'margin-top': '0.5in',

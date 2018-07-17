@@ -1,6 +1,8 @@
 from django.urls import path
 
 from . import views
+from django_pdfkit import PDFView
+from .models import Journal
 
 app_name = 'journal'
 # urlpatterns = [
@@ -19,4 +21,5 @@ urlpatterns = [
     path('form/', views.CreateView.as_view(), name='create'),
     path('update/', views.UpdateView.as_view(), name='update'),
     path('<int:journal_id>/pdfcreate/', views.pdfview, name='pdfview'),
+    # path('<int:journal_id>/pdfcreate/', PDFView.as_view(template_name='journal/pdfview.html', inline), name="temp_pdfview")
 ]

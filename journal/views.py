@@ -30,12 +30,17 @@ class UpdateView(generic.UpdateView):
     success_url = "/"
 
 
+# class PdfView():
+#     model = Journal
+#     template_name = 'journal/pdfview.html'
+#     success_url = "/journal"
+
 def pdfview(request, journal_id):
     journal = Journal.objects.get(id=journal_id)
     # print(journal)
     # pdf用のContent-TypeやContent-Dispositionをセット
     response = HttpResponse(_create_pdf(journal), content_type='application/pdf', status=200)
-    response['Content-Disposition'] = 'attachment; filename="example.pdf"'
+    response['Content-Disposition'] = 'filename="example.pdf"'
     # 即ダウンロードしたい時は、attachmentをつける
     # response['Content-Disposition'] = 'attachment; filename="example.pdf"'
     return response

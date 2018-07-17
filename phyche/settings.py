@@ -17,7 +17,7 @@ if 'takakurarei-no-MacBook-Pro.local' in gethostname():
     DEBUG=True
     TEMPLATE_DEBUG=True
 else:
-    DEBUG=True
+    DEBUG=False
     TEMPLATE_DEBUG=False
     ALLOWED_HOSTS = ['*']
 

@@ -70,19 +70,19 @@ def _create_pdf(content):
             <header class="under-line">
                 <span class="headding">週間ジャーナル</span>
                 <span class="right light">'''
-        html += '作成日：' + str(content.date.year) +'年 ' + str(content.date.month)+'月 ' + str(content.date.day)  +'日'  + '<br/>作成者：' + content.name
+        html += '作成日：' + str(content.date.year) +'年' + str(content.date.month)+'月' + str(content.date.day) +'日'  + '<br/>作成者：' + content.name
         html += '''
         </span></header>
         <style>
         html,body{
             height:297mm;
             width:210mm;
-            font-family: 'ヒラギノ角ゴシック','Hiragino Sans','メイリオ', Meiryo,'Arial Rounded MT Bold',sans-serif;
+            font-family: sans-serif;
         }
         .container{
           height: 297mm;
           width: 210mm;
-          border: solid 1px #ccc;
+          padding: 5px;
         }
         .under-line{
           width:190mm;
@@ -99,7 +99,7 @@ def _create_pdf(content):
           width: 80%;
         }
         .right{
-          margin-top: 8px;
+          margin-top: 3px;
           margin-right: 20px;
           float: right;
           line-height: 18px;

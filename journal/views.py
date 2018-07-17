@@ -73,11 +73,25 @@ def _create_pdf(content):
         html += '作成日：' + str(content.date.year) +'年' + str(content.date.month)+'月' + str(content.date.day) +'日'  + '<br/>作成者：' + content.name
         html += '''
         </span></header>
-        <style>
+        <style>'''
+        if 'takakurarei-no-MacBook-Pro.local' in gethostname():
+            html += '''
+            @font-face{
+                font-family:'ipag';
+                src: url('/app/.fonts/ipag.ttf') format('truetype');
+            }'''
+        else:
+            html += '''
+            @font-face{
+                font-family:'ipag';
+                src: url('/app/.fonts/ipag.ttf') format('truetype');
+            }'''
+
+        html += '''
         html,body{
             height:297mm;
             width:210mm;
-            font-family: 'ipag', sans-serif;
+            font-family: 'ipag', serif;
         }
         .container{
           height: 297mm;

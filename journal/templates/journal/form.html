@@ -1,6 +1,7 @@
 {% load static from staticfiles %}
+{% load sass_tags %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'journal/style.scss' %}" />
+<link rel="stylesheet" type="text/css" href="{% sass_src 'journal/style.scss' %}" />
 
 <h1>ジャーナル整形フォーム</h1>
 <a href="/journal/">一覧画面へ戻る</a>

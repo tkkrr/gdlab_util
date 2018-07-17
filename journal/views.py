@@ -50,7 +50,7 @@ def _create_pdf(content):
         if 'takakurarei-no-MacBook-Pro.local' in gethostname():
             config = pdfkit.configuration(wkhtmltopdf="/usr/local/bin/wkhtmltopdf")
         else:
-            config = pdfkit.configuration(wkhtmltopdf="/bin/wkhtmltopdf")
+            config = pdfkit.configuration(wkhtmltopdf="/app/bin/wkhtmltopdf")
 
         options = {
             'page-size': 'A4',

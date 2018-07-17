@@ -86,7 +86,7 @@ def _create_pdf(content):
             html += '''
             @font-face{
                 font-family:'hirakakuW6';
-                src: url('/app/.fonts/hirakakuW6.ttf') format('truetype');
+                src: url('/app/.fonts/hirakakuW6.ttc') format('truetype');
             }
             html,body{
                 height:297mm;

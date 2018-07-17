@@ -77,7 +77,7 @@ def _create_pdf(content):
         html,body{
             height:297mm;
             width:210mm;
-            font-family: sans-serif;
+            font-family: 'ipag', sans-serif;
         }
         .container{
           height: 297mm;

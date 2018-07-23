@@ -157,7 +157,7 @@ def _create_pdf(content):
         now = timezone.now()
         today_week = now.weekday()
         if today_week < 2:
-            today_week = today_week+6
+            today_week = today_week+7
         #水曜日基準に変更。
         today_week = today_week - 2
         #各日付(date型)を配列に格納
